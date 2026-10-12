@@ -1,0 +1,40 @@
+
+name: Python Multi-Matrix Lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  python-tests:
+    name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.12', '3.13']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Display environment
+        shell: pwsh
+        run: |
+          Write-Output "Operating system: $env:RUNNER_OS"
+          Write-Output "Python version:"
+          python --version
+          Write-Output "Python executable:"
+          python -c "import sys; print(sys.executable)"
+
+      - name: Run Python application test
+        shell: pwsh
+        run: |
+          python -c "assert 10 + 20 == 30; print('Application test PASSED')"
