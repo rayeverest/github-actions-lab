@@ -1,0 +1,30 @@
+
+name: Matrix Strategy Lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  os-matrix:
+    name: Test on ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Display operating system
+        shell: pwsh
+        run: |
+          Write-Output "Starting matrix test"
+          Write-Output "Runner OS: $env:RUNNER_OS"
+          Write-Output "Runner Name: $env:RUNNER_NAME"
+          Write-Output "GitHub Job: $env:GITHUB_JOB"
+
+      - name: Perform application test
+        shell: pwsh
+        run: |
+          Write-Output "Running application test..."
+          Write-Output "Test passed!"
