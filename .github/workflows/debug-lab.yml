@@ -1,1 +1,20 @@
 
+name: Debug Logging Lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-debugging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start test
+        run: echo "Starting diagnostic test"
+
+      - name: Simulate application failure
+        run: |
+          echo "::debug::Checking required configuration"
+          echo "Error: Application configuration missing"
+          exit 1
+
