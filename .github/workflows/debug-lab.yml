@@ -1,5 +1,6 @@
 
 
+
 name: Debug Logging Lab
 
 on:
@@ -10,15 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Start test
-        run: echo "Starting diagnostic test"
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate application configuration
+      - name: Check application configuration
         run: |
-          echo "::debug::Checking required configuration"
-          echo "Application configuration validated successfully"
-          exit 0
+          echo "::debug::Checking for application.conf"
+
+          if [ -f application.conf ]; then
+            echo "SUCCESS: Configuration file found"
+          else
+            echo "::error::Application configuration missing"
+            exit 1
+          fi
+
 
