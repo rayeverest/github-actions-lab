@@ -1,0 +1,34 @@
+
+name: Runner Operating Systems Lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linux-test:
+    name: Test on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Linux operating system
+        run: |
+          echo "Running on Linux"
+          uname -a
+          echo "Runner OS: $RUNNER_OS"
+          echo "Current directory:"
+          pwd
+
+  windows-test:
+    name: Test on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Show Windows operating system
+        shell: pwsh
+        run: |
+          Write-Output "Running on Windows"
+          Write-Output "Runner OS: $env:RUNNER_OS"
+          Write-Output "PowerShell version:"
+          $PSVersionTable.PSVersion
+          Write-Output "Current directory:"
+          Get-Location
