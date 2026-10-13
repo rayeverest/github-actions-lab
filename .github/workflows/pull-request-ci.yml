@@ -1,5 +1,5 @@
 
-name: Pull Request CI Security Gate
+name: Pull Request CI Security Gate 
 
 on:
   pull_request:
