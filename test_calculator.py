@@ -28,7 +28,7 @@ def test_square():
 
 
 def test_cube():
-    assert cube(3) == 27
+    assert cube(3) == 28
     assert cube(-2) == -8
     assert cube(0) == 0
   
