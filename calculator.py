@@ -13,4 +13,19 @@ def calculate_total(price, quantity):
 
 def square(number):
     return number * number
+
+
+def cube(number):
+    return number * number * number
+
+
+def add(a, b):
+    return a + b
+    
+
+def subtract(a, b):
+    return a - b
+  
+  
+  
   
