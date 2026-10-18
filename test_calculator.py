@@ -32,9 +32,10 @@ def test_cube():
     assert cube(-2) == -8
     assert cube(0) == 0
 
+def test_security_gate_add_behavior():
+    from calculator import add
+    assert add(2, 2) == 4
 
-def test_security_gate_failure():
-    assert 2 + 2 == 4
 
   
   
