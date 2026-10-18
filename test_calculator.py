@@ -31,5 +31,10 @@ def test_cube():
     assert cube(3) == 27
     assert cube(-2) == -8
     assert cube(0) == 0
+
+
+def test_security_gate_failure():
+    assert 2 + 2 == 5
+
   
   
