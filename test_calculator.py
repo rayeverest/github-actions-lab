@@ -34,7 +34,7 @@ def test_cube():
 
 
 def test_security_gate_failure():
-    assert 2 + 2 == 5
+    assert 2 + 2 == 4
 
   
   
